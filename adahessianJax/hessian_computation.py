@@ -1,7 +1,7 @@
 import numpy
 import jax.numpy as jnp
 from jax import jvp, grad, value_and_grad, random, dtypes
-from jax.tree_util import tree_map, tree_multimap
+from jax.tree_util import tree_map
 
 __all__ = ['grad_and_hessian', 'value_grad_and_hessian', 'average_magnitude']
 
@@ -12,7 +12,7 @@ def _tree_product(tree1, tree2):
     """returns tree1*tree2"""
     def leaf_product(leaf1, leaf2):
         return leaf1*leaf2
-    return tree_multimap(leaf_product, tree1, tree2)
+    return tree_map(leaf_product, tree1, tree2)
 
 def _make_random_tree(tree, rng):
     """
