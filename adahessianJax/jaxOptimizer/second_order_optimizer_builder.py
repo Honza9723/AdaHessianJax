@@ -1,7 +1,7 @@
 from typing import Callable, NamedTuple, Tuple
 from functools import wraps
-from jax.util import partial, unzip2, safe_zip, safe_map
-from jax.tree_util import tree_flatten, tree_unflatten
+from jax.util import unzip2, safe_zip, safe_map
+from jax.tree_util import tree_flatten, tree_unflatten, partial
 from jax.experimental.optimizers import Step, Updates, OptimizerState, InitFn, ParamsFn, Params, State, Optimizer
 
 # describes the optimizer's functions
